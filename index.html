@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="ar" dir="rtl">
+
+<head>
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="index.css">
+
+<link rel="icon" href="icon.png" >
+<title> تكلفة الرحلة! </title>
+</head>
+
+<body>
+
+<br>
+<h1> اختر الوجهة وتفاصيل الرحلة لمعرفة التكاليــف! </h1>
+<hr style="height: 13px;
+    border-width: 0;
+    color: yellow;
+    background-color: yellow;">
+
+<br>
+	
+<img id="flag" src="lebanon.png" class="rounded"  alt="flag">
+
+
+<form>
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">البلد: </label>
+    <div class="col-sm-10">
+<select class="form-control" id="country" onchange="changeFlag();">
+<option value="lebanon.png"> لبنان </option>
+<option value="america.jpg"> أمريكا </option>
+<option value="sweden.png"> السويد </option>
+<option value="germany.png"> ألمانيا </option>
+<option value="france.png"> فرنسا </option>
+</select>
+    </div>
+  </div>
+ 
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">النجوم: </label>
+    <div class="col-sm-10">
+<select class="form-control" id="stars">
+<option value="100"> * </option>
+<option value="200"> ** </option>
+<option value="300"> *** </option>
+<option value="400"> **** </option>
+<option value="500"> ***** </option>
+</select>	 
+    </div>
+  </div>
+  
+  
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">المكان: </legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="w" id="gridRadios1" value="1.5" checked>
+        <label class="form-check-label" for="gridRadios1">
+          على البحر
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="w" id="gridRadios2" value="1">
+        <label class="form-check-label" for="gridRadios2">
+          على الجبل
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="w" id="gridRadios3" value="0.9" >
+        <label class="form-check-label" for="gridRadios3">
+         لا يهم
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+  
+  
+  <div class="row mb-3">
+     <label for="inputPassword3" class="col-sm-2 col-form-label">الوجبات: </label>
+
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1" name="m" value="50">
+        <label class="form-check-label" for="gridCheck1">
+          الفطور
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1" name="m" value="75">
+        <label class="form-check-label" for="gridCheck1">
+          الغداء
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1" name="m" value="100">
+        <label class="form-check-label" for="gridCheck1">
+          العشاء
+        </label>
+      </div>
+	  </div>
+    </div>
+
+  <div class="row mb-3">
+     <label for="inputPassword3" class="col-sm-2 col-form-label">ميّزات إضافية: </label>
+    <div class="col-sm-10">	 
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="e" value="100">
+  <label class="form-check-label" for="flexSwitchCheckDefault">خدمة 24 ساعة متواصلة</label>
+</div>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="e" checked value="150">
+  <label class="form-check-label" for="flexSwitchCheckChecked">دليل سياحي مرافق طول الرحلة</label>
+</div>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="e" value="200">
+  <label class="form-check-label" for="flexSwitchCheck">حجز سيارة خاصة طول الرحلة</label>
+</div>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="e" checked value="250" >
+  <label class="form-check-label" for="flexSwitchCheckChecked">جولة في المدينة</label>
+</div>
+</div>
+</div>
+</form>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+<div class="d-grid gap-2" >
+  <button class="btn btn-warning" onclick="calc()" type="button">احسب الكلفة: </button>
+</div>
+</div>
+
+<div class="col ">
+<input class="btn btn-warning" type="text" id="result" value="0" />
+    </div>
+	</div>
+</div>
+
+
+
+	
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./index.js">
+</script>
+</body>
+
+</html>
